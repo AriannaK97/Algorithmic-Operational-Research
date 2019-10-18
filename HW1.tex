@@ -1,6 +1,9 @@
 \documentclass[10pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage[utf8]{inputenc}
-\usepackage{mathtools,amssymb}
+\usepackage[english]{babel}
+\newcommand{\R}{\mathbb{R}}
 
 \title{Algorithmic Operation Research}
 \date{18-10-2019}
@@ -9,7 +12,95 @@
 \begin{document}
 	\maketitle{}
   	\pagenumbering{arabic}
-  	\section{Exercise 1}
-  	Let be a convex set with $\x 1 , . . . \x k \in \C$ and let $1 , . . . , \theta k \in \R$ satisfy $\theta i \geq 0$ and
-$\theta 1 + · · · + \theta k = 1$. Show that $\theta 1 x 1 + · · · + \theta k x k \in \C$.
+  	
+%----------------------------Exercise 1 ------------------------
+  	\begin{center}
+  	\section{}
+  	\end{center}\par
+  	Let  $C \subseteq \R^n$ be a convex set with $x_1 , . . . x_k \in C$ and let $			\theta_1$ , . . . ,$\theta_k \in \R $
+  	satisfy $\theta_i \geq 0$ and $\theta_1 + . . . + \theta_k = 1 $. Show that $\theta_1 x_1 + . . . + \theta_k x_k \in C $.\\
+  	\textbf{Solution:}\par
+  	We will start by proving the question for $i = 3$ which is trivial. So, suppose $i = 3$  and we also have $x_1, x_2, x_3 \in C$ and $\theta_1 + \theta_2 + \theta_3 = 1$ with $\theta_1, \theta_2, \theta_3 \geq 0$. 
+  	  We will show that $$\theta_1 x_1 + \theta_2 x_2 + \theta_3 x_3 \in C\quad (1)$$ 
+  	  There is at least one of the $\theta_i$ that does not equal $1$.
+  	  Now, assume, without loss of generality that $\theta_i \neq 1$, where $$\theta_1 + \theta_2 + \theta_3 = 1 \iff $$$$\theta_2 + \theta_3 = 1 - \theta_1 \iff\quad,   (1 - \theta_1 > 0)$$ $$\cfrac{\theta_2 + \theta_3}{1-\theta_1} = 1 \Rightarrow$$ $$1 = m_1 + m_2 = \cfrac{\theta_2 + \theta_3}{1-\theta_1} \Rightarrow$$ $$m_1 = \cfrac{\theta_2}{1-\theta_1}\quad(2)\quad and \quad m_2 = \cfrac{\theta_3}{1-\theta_1}\quad(3)\Rightarrow$$ $$\theta_2 = m_1(1 - \theta_1)\quad and \quad \theta_3 = m_2(1 - \theta_2)$$ 
+  	  Thus, from $(1), (2)\quad and\quad (3)$, we have 	$$\theta_1 x_1 + (1 - \theta_1)(m_1 x_1 + m_2 x_3)\quad (4)$$
+  	  Since $C$ is convex and $x_2, x_3 \in C$, we conclude that $(m_1 x_1 + m_2 x_3) \in C$ as "extensions". Thus, since both points are in the convex $C$, then the function is in $C$ as well.\par 
+  	  \newpage
+  	  Now that we have proven that the function belongs to set C for $i = 3$, we can prove with the same steps that it is also true for the general example $i = k$ where $$\theta_1 x_1 + \theta_2 x_2 + \theta_3 x_3 +\quad . . .\quad +\theta_k \in C\quad (5)$$. Following the method above, we find that $$\theta_1 + \theta_2 + ... + \theta_k = 1 \iff$$ $$\theta_2 + \theta_3 +\quad . . .\quad + \theta_k = 1 - \theta_1 \iff \quad,   (1 - \theta_1 > 0)$$ $$\cfrac{\theta_2 + \theta_3 +\quad . . .\quad +\theta_k}{1-\theta_1} = 1 \Rightarrow$$ $$m_1 = \cfrac{\theta_2}{1-\theta_1}\quad (6)\quad . . .\quad m_{k-1} = \cfrac{\theta_k}{1 - \theta_1}\quad (7)$$. As in the proof for $i = 3$ it is easy to see that from the $(5), (6)\quad and\quad (7)$ we have $$\theta_1 x_1 + (1 - \theta_1)(m_1 x_1 + m_2 x_3 +\quad . . .\quad + m_{k-1} x_k)\quad (8)$$. Thus, we show that since $C$ is convex and all points $x_1, x_2, ..., x_k \in C$ then $(m_1 x_1 + m_2 x_3 +\quad . . .\quad + m_{k-1} x_k) \in C$. So the function given is proved to be convex and belong to set $C$.
+  	\newpage
+  	
+%----------------------------Exercise 2 -----------------------
+  	
+  	\begin{center}
+  	\section{}
+  	\end{center}\par
+  	Show that a set is convex if and only if its intersection with any line is convex.\\
+  	\textbf{Solution:}\par
+  	We have a convex set $S$. Suppose we have a convex set $A$.\\
+  	\textbf{$\Rightarrow$}\\
+  	Let's take two points $p_1, p_2 \in S \cup A$, and point $p$ is on the line segment of $p_1p_2$.
+  	\begin{center}
+  	$\bullet$  $p \in S$ because $S$ is convex\\
+  	$\bullet$  $p \in A$ because $A$ is convex\\
+  	So $p \in S \cap A$\\
+  	\end{center}
+  	Since the two points $p_1$ and $p_2$ are arbitrary, we can assume that $S \cap A$ as well. (even in the case where $S \cap A$ is null it is convex) \\
+  	\textbf{$\Leftarrow$}\\
+  	Let $L \cap C$ which is convex for all lines in $L$. Assume that $C$ is not convex, thus $\exists x,y \in C$, with $\lambda \in [0,1]$, where $$\lambda x + (1 - \lambda)y \notin C$$. But, the line $ax + (1 - a)y, a \in \R$ intersects with $C$, thus, the intersection is convex.\par 
+  	The line segment between $x,y$ belongs to the intersection $\lambda x + (1 - \lambda)y$, thus belonging to $C$ as well, which negates our previous assumption, proving that $C$ is indeed convex.
+  	\newpage
+  	
+%----------------------------Exercise 3 ------------------------
+  	\begin{center}
+  	\section{}
+  	\end{center}\par
+  	  	Show that a set is affine if and only if its intersection with any line is affine.\\
+  	\textbf{Solution:}\par
+  	As proved above in question $(3)$, the intersection of convex set $S$ with \underline{any} line is convex.\par
+  	Let's take two points $x_1$ and $x_2$, where $x_1, x_2 \in S$. From the proof above, we know that the line between these two points is convex. Thus, the convex combination of $x_1$ and $x_2$ belongs to the intersection and expectedly to $S$. To conclude, since the line belongs to convex set $S$, the set is affine.
+  	\newpage
+
+%----------------------------Exercise 4 ------------------------
+  	
+  	\begin{center}
+  	\section{}
+  	\end{center}\par
+  	  	A set $C$ is midpoint convex, if whenever two points $a, b \in C$, the average or midpoint
+$(a + b)/2$ is in $C$. Obviously, a convex set is midpoint convex. Prove that if $C$ is closed and
+midpoint convex, then $C$ is convex.\\
+  	\textbf{Solution:}\par
+  	\newpage  	
+  	
+%----------------------------Exercise 5 ------------------------  	
+  	
+  	\begin{center}
+  	\section{}
+  	\end{center}\par
+  	  	Show that the convex hull of a set $S$ is the intersection of all convex sets that contain
+$S$.(The same method can be used to show that the conic, or affine, or linear hull of a set $S$ is
+the intersection of all conic sets, or affine sets, or subspaces that contain $S$.\\
+  	\textbf{Solution:}\par
+  	\newpage
+  	
+%----------------------------Exercise 6 ------------------------  	
+  	
+  	\begin{center}
+  	\section{}
+  	\end{center}\par
+  	What is the distance between two parallel hyperplanes $\{x \in R n : a T x = b 1 \}$ and
+$\{x \in R n : a T x = b 2 \}$?\\
+  	\textbf{Solution:}\par
+  	\newpage
+  	
+%----------------------------Exercise 7 ------------------------  	
+  	
+  	\begin{center}
+  	\section{}
+  	\end{center}\par
+  	Let a and b be distinct points in $\R^n$. Show that the set of all points that are closer (in
+Euclidean norm) to a than b is a halfspace.\\
+  	\textbf{Solution:}\par
+  	\newpage
+  	
 \end{document}
