@@ -2,6 +2,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage[utf8]{inputenc}
+\usepackage{enumitem}
 \usepackage[english]{babel}
 \newcommand{\R}{\mathbb{R}}
 
@@ -70,6 +71,21 @@
 $(a + b)/2$ is in $C$. Obviously, a convex set is midpoint convex. Prove that if $C$ is closed and
 midpoint convex, then $C$ is convex.\\
   	\textbf{Solution:}\par
+  	Let $ x, y \in C$ and assume that z is a point on the line segment between x and y. We construct a sequence {z_i} := $(x_i + y_i)/2$, where x_0 = x, y_0 = y, and \par
+  	x_i_+_1 =
+ $\begin{cases} 
+      z_i & z_i \leq z \\
+      x_i &  z_i > z 
+   \end{cases}
+$
+\quad y_i_+_1 = 
+\ \begin{cases} 
+     z_i & z_i \leq z \\
+      y_i &  z_i > z
+   \end{cases}
+\] \\ 
+By this construction, $z$ is always on the line segment between $x_i$ and $y_i$, so we have $||z_i - z|| \leq ||x-y||2^{-i}$, which means $z_i$ converges to $z$. By midpoint convexity of $C$, we have $z_i \in C$ for all i, and because $C$ is closed we have $z \in C$. This is true for all $z$ on the line segment between x and y, so $C$ is convex. 
+  	
   	\newpage  	
   	
 %----------------------------Exercise 5 ------------------------  	
@@ -81,16 +97,48 @@ midpoint convex, then $C$ is convex.\\
 $S$.(The same method can be used to show that the conic, or affine, or linear hull of a set $S$ is
 the intersection of all conic sets, or affine sets, or subspaces that contain $S$.\\
   	\textbf{Solution:}\par
+  	Let $A$ be the set of all convex combinations of points in $S$. Since: \\
+  	\begin{itemize}
+  	\item $S \subseteq Conv(S)$ \\
+  	 \item $\forall x \in A$  is a convex combination of points in $Conv(S)$. \\
+  	 \end{itemize}
+  	 Hence, we have, as proven in question 2, that $A \subseteq Conv(S)$. \\
+  	 To prove the reverse inclusion, we show that $A$ is a convex subspace containing $S$. Since $Conv(S)$ is the smallest possible convex subspace that contains $S$, it will show that $A \supseteq Conv(S)$. \\
+  	 We have that $S \subseteq A$, and we have to show that $A$ is a convex subspace. \\
+  	 Assume two points $x_1, x_2 \in A$. \\
+  	 By definition there is: \\
+  	 	\begin{itemize}
+  	\item $y_1, ..., y_p, y_{p+1}, ..., y_q$\\
+  	 \item $a_1, ..., a_p, a_{p+1}, ..., a_q$, such that \\
+  	 \item $x_1 = \sum_{i=1}^{p}{a_i}{y_i}$, \quad $x_2 = \sum_{i=p+1}^{q}{a_i}{y_i}$ \quad and \\
+  	 \item $\sum_{i=1}^{p}{a_i} = \sum_{i=p+1}^{q}{a_i} =1. $
+  	 \end{itemize} 
+  	 \\
+  	 For any $\beta \in \R$, we have \\
+  	 \quad $\overline{x} = \beta x_1 + (1 - \beta) x_2  = \sum_{i=1}^{p}{\beta a_i y_i} + \sum_{i=p+1}^{q}{(1-\beta) a_i y_i},\\ $
+  	 with $\sum_{i=1}^{p}{\beta a_i } + \sum_{i=p+1}^{q}{(1-\beta) a_i} = 1 \\ $. 
+  	 Thus, we conclude that $\overline{x}$ is a convex combination of points in $S$, and we have $\overline{x} \in A$, showing that A is a convex subset. \\
+  	 Now we proved both sides, showing that the convex hull  of a set S is the intersection of all convex sets that contain $S$.
   	\newpage
   	
 %----------------------------Exercise 6 ------------------------  	
   	
-  	\begin{center}
+  	\begin{}
   	\section{}
   	\end{center}\par
-  	What is the distance between two parallel hyperplanes $\{x \in R n : a T x = b 1 \}$ and
-$\{x \in R n : a T x = b 2 \}$?\\
+  	What is the distance between two parallel hyperplanes $\{x \in \R^n : a^Tx = b_1 \}$ and
+$\{x \in \R^n : a^Tx = b_2 \}$?\\
   	\textbf{Solution:}\par
+  	Let $x_1$ be a point in the first hyperplane, and consider the line $L$, that goes through $x_1$, in the direction of $a$. The equation of $L$ is $x_1+at, t \in \R$. Now we have to find the intersection of $L$ with the second hyperplane: \\
+  	$$a^T(x_1+at) = b2 \quad \Leftrightarrow \quad  t = \frac{b_2 - a^Tx_1}{a^Ta} \quad \Leftrightarrow \quad t = \frac{b_2 - b_1}{a^Ta}$$. \\
+  	Therefore, let's call the intersection point $x_2$, which is equal to: \\
+  	$$x_2 = x_1 + a\frac{b_2 - b_1}{a^Ta}$$. \\
+  	Thus, we only have to find the distance between $x_1$ and $x_2$: \\
+  	$$||x_1 - x_2|| = \frac{|b_2-b_1|}{||a||^2}$$.
+  	\par
+ 
+  	
+  	
   	\newpage
   	
 %----------------------------Exercise 7 ------------------------  	
@@ -100,7 +148,13 @@ $\{x \in R n : a T x = b 2 \}$?\\
   	\end{center}\par
   	Let a and b be distinct points in $\R^n$. Show that the set of all points that are closer (in
 Euclidean norm) to a than b is a halfspace.\\
-  	\textbf{Solution:}\par
+  	\textbf{Solution: }\par
+  	The euclidean norm is nonnegative, therefore:  \\
+  	$$||x-a||_2 \leq ||x-b||_2 \quad \Leftrightarrow \quad ||x-a||_2^2 \leq ||x-b||_2^2 \quad \Leftrightarrow \\$$
+  	$$\Leftrightarrow \quad (x-a)^T(x-a) \leq (x-b)^T(x-b) \quad  \Leftrightarrow \\$$
+ $$ 	\Leftrightarrow \quad x^Tx - 2a^Tx + a^Ta \leq x^Tx - 2b^Tx + b^Tb \quad \Leftrightarrow \\$$
+  $$	\Leftrightarrow \quad 2(b-a)^Tx \leq b^Tb - a^Ta \\ $$
+  	Therefore, the set is indeed halfspace, if we substitute $ c = 2(b-a)$ and $ d = b^Tb - a^Ta$ .
   	\newpage
   	
 \end{document}
