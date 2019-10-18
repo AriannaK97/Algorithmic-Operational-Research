@@ -18,9 +18,9 @@
   	\begin{center}
   	\section{}
   	\end{center}\par
-  	Let  $C \subseteq \R^n$ be a convex set with $x_1 , . . . x_k \in C$ and let $			\theta_1$ , . . . ,$\theta_k \in \R $
-  	satisfy $\theta_i \geq 0$ and $\theta_1 + . . . + \theta_k = 1 $. Show that $\theta_1 x_1 + . . . + \theta_k x_k \in C $.\\
-  	\textbf{Solution:}\par
+  	\textit{Let  $C \subseteq \R^n$ be a convex set with $x_1 , . . . x_k \in C$ and let $			\theta_1$ , . . . ,$\theta_k \in \R $
+  	satisfy $\theta_i \geq 0$ and $\theta_1 + . . . + \theta_k = 1 $. Show that $\theta_1 x_1 + . . . + \theta_k x_k \in C $.}\\ \\
+  	\textbf{Solution:}\\ \par
   	We will start by proving the question for $i = 3$ which is trivial. So, suppose $i = 3$  and we also have $x_1, x_2, x_3 \in C$ and $\theta_1 + \theta_2 + \theta_3 = 1$ with $\theta_1, \theta_2, \theta_3 \geq 0$. 
   	  We will show that $$\theta_1 x_1 + \theta_2 x_2 + \theta_3 x_3 \in C\quad (1)$$ 
   	  There is at least one of the $\theta_i$ that does not equal $1$.
@@ -36,8 +36,8 @@
   	\begin{center}
   	\section{}
   	\end{center}\par
-  	Show that a set is convex if and only if its intersection with any line is convex.\\
-  	\textbf{Solution:}\par
+  	\textit{Show that a set is convex if and only if its intersection with any line is convex.}\\ \\
+  	\textbf{Solution:}\\ \par
   	We have a convex set $S$. Suppose we have a convex set $A$.\\
   	\textbf{$\Rightarrow$}\\
   	Let's take two points $p_1, p_2 \in S \cup A$, and point $p$ is on the line segment of $p_1p_2$.
@@ -56,9 +56,9 @@
   	\begin{center}
   	\section{}
   	\end{center}\par
-  	  	Show that a set is affine if and only if its intersection with any line is affine.\\
-  	\textbf{Solution:}\par
-  	As proved above in question $(3)$, the intersection of convex set $S$ with \underline{any} line is convex.\par
+  	\textit{Show that a set is affine if and only if its intersection with any line is affine.}\\ \\
+  	\textbf{Solution:}\\ \par
+  	\\As proved above in question $(3)$, the intersection of convex set $S$ with \underline{any} line is convex.\par
   	Let's take two points $x_1$ and $x_2$, where $x_1, x_2 \in S$. From the proof above, we know that the line between these two points is convex. Thus, the convex combination of $x_1$ and $x_2$ belongs to the intersection and expectedly to $S$. To conclude, since the line belongs to convex set $S$, the set is affine.
   	\newpage
 
@@ -67,10 +67,10 @@
   	\begin{center}
   	\section{}
   	\end{center}\par
-  	  	A set $C$ is midpoint convex, if whenever two points $a, b \in C$, the average or midpoint
+  	\textit{A set $C$ is midpoint convex, if whenever two points $a, b \in C$, the average or midpoint
 $(a + b)/2$ is in $C$. Obviously, a convex set is midpoint convex. Prove that if $C$ is closed and
-midpoint convex, then $C$ is convex.\\
-  	\textbf{Solution:}\par
+midpoint convex, then $C$ is convex.}\\ \\
+  	\textbf{Solution:}\\ \par
   	Let $ x, y \in C$ and assume that z is a point on the line segment between x and y. We construct a sequence {z_i} := $(x_i + y_i)/2$, where x_0 = x, y_0 = y, and \par
   	x_i_+_1 =
  $\begin{cases} 
@@ -93,10 +93,10 @@ By this construction, $z$ is always on the line segment between $x_i$ and $y_i$,
   	\begin{center}
   	\section{}
   	\end{center}\par
-  	  	Show that the convex hull of a set $S$ is the intersection of all convex sets that contain
+  	\textit{Show that the convex hull of a set $S$ is the intersection of all convex sets that contain
 $S$.(The same method can be used to show that the conic, or affine, or linear hull of a set $S$ is
-the intersection of all conic sets, or affine sets, or subspaces that contain $S$.\\
-  	\textbf{Solution:}\par
+the intersection of all conic sets, or affine sets, or subspaces that contain $S$.}\\ \\
+  	\textbf{Solution:}\\ \par
   	Let $A$ be the set of all convex combinations of points in $S$. Since: \\
   	\begin{itemize}
   	\item $S \subseteq Conv(S)$ \\
@@ -126,9 +126,9 @@ the intersection of all conic sets, or affine sets, or subspaces that contain $S
   	\begin{center}
     	\section{}
   	\end{center}\par
-  	What is the distance between two parallel hyperplanes $\{x \in \R^n : a^Tx = b_1 \}$ and
-$\{x \in \R^n : a^Tx = b_2 \}$?\\
-  	\textbf{Solution:}\par
+  	\textit{What is the distance between two parallel hyperplanes $\{x \in \R^n : a^Tx = b_1 \}$ and
+$\{x \in \R^n : a^Tx = b_2 \}$?}\\ \\
+  	\textbf{Solution:}\\ \par
   	Let $x_1$ be a point in the first hyperplane, and consider the line $L$, that goes through $x_1$, in the direction of $a$. The equation of $L$ is $x_1+at, t \in \R$. Now we have to find the intersection of $L$ with the second hyperplane: \\
   	$$a^T(x_1+at) = b2 \quad \Leftrightarrow \quad  t = \frac{b_2 - a^Tx_1}{a^Ta} \quad \Leftrightarrow \quad t = \frac{b_2 - b_1}{a^Ta}$$. \\
   	Therefore, let's call the intersection point $x_2$, which is equal to: \\
@@ -146,9 +146,9 @@ $\{x \in \R^n : a^Tx = b_2 \}$?\\
   	\begin{center}
   	\section{}
   	\end{center}\par
-  	Let a and b be distinct points in $\R^n$. Show that the set of all points that are closer (in
-Euclidean norm) to a than b is a halfspace.\\
-  	\textbf{Solution: }\par
+  	\textit{Let a and b be distinct points in $\R^n$. Show that the set of all points that are closer (in
+Euclidean norm) to a than b is a halfspace.}\\ \\
+  	\textbf{Solution: }\\ \par
   	The euclidean norm is nonnegative, therefore:  \\
   	$$||x-a||_2 \leq ||x-b||_2 \quad \Leftrightarrow \quad ||x-a||_2^2 \leq ||x-b||_2^2 \quad \Leftrightarrow \\$$
   	$$\Leftrightarrow \quad (x-a)^T(x-a) \leq (x-b)^T(x-b) \quad  \Leftrightarrow \\$$
