@@ -1,0 +1,88 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\newcommand{\R}{\mathbb{R}}
+
+\title{Algorithmic Operation Research \\ Homework 6}
+\date{23-1-2020}
+\author{Theodora Panagea - 1115201400135 \\ Anna-Aikaterini Kavvada - 1115201500050}
+
+\begin{document}
+	\maketitle{}
+  	\pagenumbering{arabic}
+ 
+ \newpage
+%-------------------Exercise 1----------------------------  	
+\subsection*{Exercise 1}
+\textit{Define the 0-1 knapsack problem.}\newline
+
+To begin with, in $0-1$ knapsack problem we have the primal restriction of the number $x_i$ of copies of each item to zero or one, since we cannot intersect the items available and get just part of them. \par
+Now, consider a set of $n$ items, numbered from 1 up to $n$. Each item has a weight $w_i$ and a value $v_i$. Also, for the problem, consider our knapsack has a maximum weight capacity $W$. Our goal, is to maximize the the sum of the item values in the knapsack, so that the weights is less than or equal to the maximum capacity $W$. Thus, we get the following problem expression:
+
+$$\text{maximize} \sum_{i=1}^{n} v_i x_i$$
+$$\text{subject to} \sum_{i=1}^{n} w_i x_i \leq W \quad \text{and} 0 \leq x_i \leq c1$$
+
+\newpage
+
+%-------------------Exercise 2----------------------------  	
+\subsection*{Exercise 2}
+\textit{Give a dynamic programming solution to the 0-1 knapsack problem.}\newline
+
+\newpage
+
+%-------------------Exercise 3----------------------------  	
+\subsection*{Exercise 3}
+\textit{Give real world applications of knapsack problem.}\newline
+
+The most simple and obvious real life application of the knapsack problem is the following. Consider being a traveller/nomad in todays world. This means that the total weight of all your wordly possesions must fall under airline cabin baggage weight limits - usually 10kg. On some smaller airlines, however, this weight limit drops to 7kg. Occasionally, you have to decide not to bring something with you to adjust to the smaller weight limit. \par
+So you have to decide what to leave behind (or get rid of altogether), which entails laying out all your belongings and choosing which ones to keep. That decision is based on the item's usefulness to you (/cost) and its weight, so that i can pack as more items as possible in the limited space you get.
+
+The knapsack problem is an example of a combinational optimization problem, a topic in mathematics and computer science about finding the optimal object among a set of objects. This is a problem that has been studied for more than a century and is a commonly used example problem in combinatorial optimization, where there is a need for an optimal object or finite solution where an exhaustive search is not possible. The problem can be found real-world scenarios like resource allocation in financial constraints or even in selecting investments and portfolios. It also can be found in fields such as applied mathematics, complexity theory, cryptography, combinatorics and computer science. It is easily the most important problem in logistics.
+
+In the knapsack problem, the given items have two attributes at minimum - an item’s value, which affects its importance, and an item’s weight or volume, which is its limitation aspect. Since an exhaustive search is not possible, one can break the problems into smaller sub-problems and run it recursively. This is called an optimal sub-structure. This deals with only one item at a time and the current weight still available in the knapsack. The problem solver only needs to decide whether to take the item or not based on the weight that can still be accepted. However, if it is a program, re-computation is not independent and would cause problems. This is where dynamic programming techniques can be applied. Solutions to each sub-problem are stored so that the computation would only need to happen once. Some other applications of the knapsack algorithm can be found in \newline
+
+\begin{enumerate}
+    \item Home Energy Management
+    \item Cognitive Radio Networks
+    \item Resource management in software
+    \item Large-scale multi-period precedence constrained knapsack problem: A mining application
+    \item Relay selection in secure cooperative wireless communication
+    \item Power allocation management
+    \item Selecting adverts garden city radio
+    \item Solve the production planning problem
+    \item Cognitive radio networks
+    \item 5G mobile edge computing
+    \item Selection of renovation actions
+    \item Solve the production planning problem
+    \item Sensor Selection in Distributed Multiple-Radar
+    \item Architectures for Localization
+    \item Appliance Scheduling Optimization for Demand Response
+    \item Adaptive Variable Density Sampling
+    \item Secure Cooperative Wireless Communication
+    \item Optimizing Power Allocation to Electrical Appliances
+    \item Computation Offloading in Wireless Multi-Hop Networks
+    \item Formulation and Solution Method of Tour Conducting
+    \item Plastic Bags Waste Management Using the Knapsack Model
+    \item Workflow mapping using CUDA
+    \item Optimization of Content Delivery Networks
+    \item Network Selection for Mobile Nodes
+\end{enumerate}
+
+Another application is the one described below. \par 
+
+Mapping and running jobs on suitable resources are the core tasks in grid computing. In the algorithm to map light communication Grid-based workflow within the SLA context, there is an operation of resolving the conflict period which is exact a 0/1 knapsack problem. When the size of the workflow is large such as in the case of mapping a group of workflows, the time to solve this problem is long and thus, makes the whole mapping process long. In this paper, we describe a way to solve this problem by exploiting the parallel computing power of graphic processing unit (GPU) with compute unified device architecture (CUDA). The experiment shows that the approach is very efficient with huge problem.
+
+\textit{\textbf{Link to paper:} \hyperlink{https://ieeexplore.ieee.org/abstract/document/5282978}{Light Communication SLA-Based Workflow Mapping Using CUDA}}
+
+\newpage
+
+%-------------------Exercise 4----------------------------  	
+\subsection*{Exercise 4}
+\textit{Define the Subset sum problem and give a dynamic programming solution for
+it. Write down the difference between the subset sum and the knapsack problem.}\newline
+
+\end{document}
