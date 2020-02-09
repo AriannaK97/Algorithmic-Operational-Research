@@ -24,7 +24,7 @@ To begin with, in $0-1$ knapsack problem we have the primal restriction of the n
 Now, consider a set of $n$ items, numbered from 1 up to $n$. Each item has a weight $w_i$ and a value $v_i$. Also, for the problem, consider our knapsack has a maximum weight capacity $W$. Our goal, is to maximize the the sum of the item values in the knapsack, so that the weights is less than or equal to the maximum capacity $W$. Thus, we get the following problem expression:
 
 $$\text{maximize} \sum_{i=1}^{n} v_i x_i$$
-$$\text{subject to} \sum_{i=1}^{n} w_i x_i \leq W \quad \text{and} 0 \leq x_i \leq c1$$
+$$\text{subject to} \sum_{i=1}^{n} w_i x_i \leq W \quad \text{ and } \quad 0 \leq x_i \leq 1$$
 
 \newpage
 
@@ -32,6 +32,18 @@ $$\text{subject to} \sum_{i=1}^{n} w_i x_i \leq W \quad \text{and} 0 \leq x_i \l
 \subsection*{Exercise 2}
 \textit{Give a dynamic programming solution to the 0-1 knapsack problem.}\newline
 
+In order to solve the 0-1 knapsack problem with dynamic programming, we have to come up with an optimal substructure and overlapping subproblems, both of which are indeed present in the 0-1 knapsack problem. \par
+So, let's suppose we have a knapsack that can hold $w$ weight units. We have a total of $n$ items to choose from, each one of them having its own value and weight. As a reminder, this is the 0-1 knapsack problem, so we either include or exclude an item in our knapsack. \par
+Now that we have defined the problem, a solution - algorithm could be the following: \\ \\
+\textbf{Step 1:} Firstly, we create a 2-dimensional array, with $n+1$ rows and $w+1$ columns. \par
+A row number $i$ represents the set of all the items 1 to i. For example, the values in row 3, assumes that we have only the items 1,2 and 3. \par
+A column number $j$ represents the weight capacity of our knapsack. Therefore, the values in column 3, assumes that our knapsack can hold up to 3 weight units. \\ \\
+\textbf{Step 2:} We start filling the base cases in our table, for which the solution is trivial. For instance, at row 0, we have no items to pick from, so the maximum value in any knapsack is 0. Similarly, at column 0, the knapsack can hold 0 weight units, so there is no maximum value to begin with, and we put 0, since where are no massless valuable items. \\ \\
+\textbf{Step 3:} Here, at each step, we will make use of our solutions to the previous sub-problems. The relation between the rows, columns and the previous sub-problems is as follows:  \par
+The element on the i-th row and j-th column, is the maximum value of a sub-problem consisting of items $1,2,\ldots,i$ with a knapsack of $j$ capacity. In each sub-problem, we can either include item $i$ or not. Therefore, each time, we compare the maximum value we can obtain with item $i$ and without it. \par
+Of course, the latter can be found at row $i-1$, column $j$. But what about the first option? \par
+To calculate that, firstly we compare the weight of the i-th item with the knapsack's weight capacity. Obviously, if item $i$ weighs more than the knapsack's capacity, it is easily excluded, and we don't have to make any further calculation. In that case, we fill the maximum value with the one we can obtain wiwthout item $i$ ($1-i$ row, same column). When however. the item $i$ weighs less, we have the option to include it, if it potentially increases the maximum obtainable value. The maximum obtainable value by including item $i$ is consequently:= the value of item $i$ + the maximum value that can be obtained with the remaining capacity of the knapsack. We obviously want to make full use of the capacity of our knapsack. Therefore, at row $i$ and column $j$ (which represents the maximum value we can obtain there), we would pick either the maximum value that we can obtain without item $i$, or the maximum value that we can obtain with item $i$, whichever is larger. \\ \\ 
+\textbf{Step 4:} This is the final solution. Once the 2-dimensional array has been filled, the solution can be found at the last row and last column, which represents the maximum value obtainable with all the items and the full capacity of the knapsack.
 \newpage
 
 %-------------------Exercise 3----------------------------  	
@@ -83,6 +95,8 @@ Mapping and running jobs on suitable resources are the core tasks in grid comput
 %-------------------Exercise 4----------------------------  	
 \subsection*{Exercise 4}
 \textit{Define the Subset sum problem and give a dynamic programming solution for
-it. Write down the difference between the subset sum and the knapsack problem.}\newline
+it. Write down the difference between the subset sum and the knapsack problem.}\\ \newline
+\textbf{Subset Sum Problem:} Given a set of positive integers, and a value sum $S$, find out if there exists a subset in array whose sum is equal to given sum $S$. \par
+0-1 Knapsack and Subset Sum are two well-known NP-complete, closely related problems. Apparently, the methods for solving Knapsack are generally the same as for Subset Sum. So, we can say that Subset Sum is a special case for Knapsack. Both problems have the same complexity, when the complexity parameter is $n$, but Knapsack appears to be easier when the complexity parameter is $x$, the total bit length of the input. \par In implementation, compared to the knapsack's approach (Exercise 2), the Subset Sum problem needs a boolean 2-dimensional array, being filled with in a bottom up manner. An element at row $i$ and column $j$ denotes if there is a subset of sum $j$ with element at index $i-1$ as the last element, therefore that value will be true if there is a subset of set$[0,\ldots,j-1]$ with sum equal to i, otherwise it will be false. Of course, all elements on column 0 are true, because the sum of no elements is $0$, and the elements on row $0$ are false, because with no elements we get no sum. If an element at index $i$ is greater than $j$, then the value of the subproblem is false, as we cannot get a subset of positive numbers with the latter element as a member.  Again, the solution is the element at the last row and column.\\
 
 \end{document}
