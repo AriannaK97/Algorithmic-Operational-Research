@@ -130,7 +130,23 @@ Let $p* = x* \geqslant 0$. Then, $p *' A$ can be transformed as: $p *' A = A'p* 
 \textit{Write down the proof of complimentary slackness theorem. }
 \\ 
 \textbf{Solution:} \\  
+Primal Problem: \newline
+$$min\quad c'x$$ $$s.t. \quad Ax \geq b$$ $$x \geq 0$$
+Dual Problem: \newline
+$$max \quad p'b$$ $$s.t. \quad p'A = c'$$ $$p \geq 0$$
+\textbf{Theorem of Slackness:} \newline
+Let $x$ and $p$ be feasible solutions to the primal and the dual problem respectively. They are optimal solutions if and only if:
+$$p_i(A'_ix - b_i) = 0$$
+$$(c_j - p'A_j)x_j = 0$$
 
-\newpage
+\textbf{\textit{Proof:}}\newline
+Given that x, p are feasible solutions to both the primal and dual problem, we have:
+$$p'b \leq pAx \leq c'x$$
+From Collorary 2 of the Weak Duality Theorem we have that if $x, p$ are feasible, thay are optimal if and only if $$p'b = c'x.$$
+For: $(c_j - p'A_j)x_j = 0 \Longrightarrow c_j - p'A_j = 0$\newline
+From the above we have: $$\bullet \quad x \geq 0$$ $$\bullet \quad pA < c$$
+Thus, we conclude that $cx = pAx$ if and only if for all $i$ either $pA_i = c_i$, with $x_i > 0$ or $x_i = 0$.\newline
+Same for: $p_i(A'_ix - b_i) = 0 \Longrightarrow A'_ix - b_i = 0$\newline
+where we know that $$pAx = pb$$ if and only if either $a_ix = b$, with $p' >0$ or $p'_i = 0$.
   	
 \end{document}
